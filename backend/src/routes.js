@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import multer from 'multer';
 
-import UserController from './app/controllers/UserController';
-import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
+import ProviderController from './app/controllers/ProviderController';
+import SessionController from './app/controllers/SessionController';
+import UserController from './app/controllers/UserController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -18,6 +19,8 @@ router.post('/users', UserController.store);
 router.use(authMiddleware);
 
 router.put('/users', UserController.update);
+
+router.get('/providers', ProviderController.index);
 
 router.post('/files', upload.single('file'), FileController.store);
 
