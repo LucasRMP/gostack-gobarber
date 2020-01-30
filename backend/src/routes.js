@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import AppointmentController from './app/controllers/AppointmentController';
+import AvailableController from './app/controllers/AvailableController';
 import FileController from './app/controllers/FileController';
 import NotificationController from './app/controllers/NotificationController';
 import ProviderController from './app/controllers/ProviderController';
@@ -24,6 +25,7 @@ router.use(authMiddleware);
 router.put('/users', UserController.update);
 
 router.get('/providers', ProviderController.index);
+router.get('/providers/:providerId/available', AvailableController.index);
 
 router.get('/appointments', AppointmentController.index);
 router.post('/appointments', AppointmentController.store);
