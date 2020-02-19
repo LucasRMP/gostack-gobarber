@@ -5,6 +5,7 @@ import express from 'express';
 import Youch from 'youch';
 import { resolve } from 'path';
 import * as Sentry from '@sentry/node';
+import morgan from 'morgan';
 
 import 'express-async-errors';
 import './database';
@@ -27,6 +28,9 @@ class App {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(cors());
     this.server.use(express.json());
+    this.server.use(
+      morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'combined')
+    );
     this.server.use(
       '/files',
       express.static(resolve(__dirname, '..', 'tmp', 'uploads'))
