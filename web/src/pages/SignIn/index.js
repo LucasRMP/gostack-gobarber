@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as yup from 'yup';
@@ -18,6 +18,7 @@ const validationSchema = yup.object().shape({
 
 function SignIn() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
 
   const handleSubmit = data => {
     const { email, password } = data;
@@ -32,7 +33,7 @@ function SignIn() {
         <Input type="email" placeholder="Email" name="email" />
         <Input type="password" placeholder="Password" name="password" />
 
-        <button type="submit">Login</button>
+        <button type="submit">{loading ? 'Loading...' : 'Login'}</button>
         <Link to="/register">Sign Up</Link>
       </Form>
     </>
