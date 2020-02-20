@@ -23,7 +23,7 @@ function Header() {
           <Profile>
             <div>
               <strong>{profile.name}</strong>
-              <Link to="/profile">My Profile</Link>
+              <Link to="/profile">Meu perfil</Link>
             </div>
             <img
               src={

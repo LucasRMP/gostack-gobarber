@@ -31,10 +31,10 @@ function SignIn() {
 
       <Form onSubmit={handleSubmit} schema={validationSchema} noValidate>
         <Input type="email" placeholder="Email" name="email" />
-        <Input type="password" placeholder="Password" name="password" />
+        <Input type="password" placeholder="Senha" name="password" />
 
-        <button type="submit">{loading ? 'Loading...' : 'Login'}</button>
-        <Link to="/register">Sign Up</Link>
+        <button type="submit">{loading ? 'Loading...' : 'Entrar'}</button>
+        <Link to="/register">Cadastre-se</Link>
       </Form>
     </>
   );

@@ -33,12 +33,12 @@ function SignUp() {
       <img src={logo} alt="GoBarber" />
 
       <Form onSubmit={handleSubmit} schema={validationSchema} noValidate>
-        <Input name="name" placeholder="Full name" />
+        <Input name="name" placeholder="Nome completo" />
         <Input name="email" type="email" placeholder="Email" />
-        <Input name="password" type="password" placeholder="Password" />
+        <Input name="password" type="password" placeholder="senha" />
 
-        <button type="submit">Create account</button>
-        <Link to="/">Alredy has an account? Sign in</Link>
+        <button type="submit">Criar conta</button>
+        <Link to="/">Já tem uma conta? Entrar</Link>
       </Form>
     </>
   );
