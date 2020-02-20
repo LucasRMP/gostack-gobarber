@@ -23,8 +23,8 @@ function Header() {
               <Link to="/profile">My Profile</Link>
             </div>
             <img
-              src="https://api.adorable.io/avatars/50/abott@adorable.pngCopy to Clipboard"
-              alt="https://api.adorable.io/avatars/50/abott@adorable.pngCopy to Clipboard"
+              src="https://api.adorable.io/avatars/50/abott@adorable.png"
+              alt="https://api.adorable.io/avatars/50/abott@adorable.png"
             />
           </Profile>
         </aside>
