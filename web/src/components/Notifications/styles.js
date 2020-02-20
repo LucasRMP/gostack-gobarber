@@ -36,6 +36,8 @@ export const NotificationList = styled.ul`
   border-radius: 4px;
   padding: 15px 5px;
 
+  display: ${props => (props.visible ? 'block' : 'none')};
+
   &::before {
     content: '';
     position: absolute;
@@ -64,6 +66,8 @@ export const Notification = styled.li`
   }
 
   time {
+    margin-top: 3px;
+    display: block;
     font-size: 12px;
     opacity: 0.6;
   }
@@ -73,9 +77,7 @@ export const Notification = styled.li`
     border: 0;
     background: none;
     color: ${lighten(0.2, '#7159c1')};
-    padding: 0 5px;
-    margin: 0 5px;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4px;
   }
 
   ${props =>
@@ -88,6 +90,7 @@ export const Notification = styled.li`
         height: 7px;
         background: #ff892e;
         border-radius: 50%;
+        margin-left: 10px;
       }
     `}
 `;
