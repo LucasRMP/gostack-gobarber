@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-// import { } from 'polished';
 
 export const Container = styled.div`
   max-width: 600px;
-  margin: 50px auto;
-
+  margin: 28px auto;
   display: flex;
   flex-direction: column;
 
@@ -38,14 +36,12 @@ export const Time = styled.li`
   padding: 20px;
   border-radius: 4px;
   background: #fff;
-
-  opacity: ${props => (!props.past ? 1 : 0.6)};
+  opacity: ${props => (props.past ? 0.6 : 1)};
 
   strong {
     display: block;
-    color: ${props => (!props.available ? '#7159c1' : '#999')};
+    color: ${props => (props.available ? '#999' : '#7159c1')};
     font-size: 20px;
-    font-weight: normal;
   }
 
   span {

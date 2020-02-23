@@ -66,7 +66,6 @@ function Notifications() {
 
       <NotificationList visible={visible}>
         <Scroll>
-          {console.tron.log(notifications)}
           {notifications.map(notification => (
             <Notification key={notification._id} unread={!notification.read}>
               <p>{notification.content}</p>
