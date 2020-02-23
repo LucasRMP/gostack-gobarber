@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Feb 23 19:44:18 BRT 2020
+#Sun Feb 23 20:24:22 BRT 2020
 56.path=lib/x86/libfolly_futures.so
 5.base=/home/lucas/dev/www/gostack/gobarber/mobile/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 42.base=/home/lucas/dev/www/gostack/gobarber/mobile/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

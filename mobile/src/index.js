@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import 'react-native-gesture-handler';
+
+import Routes from './routes';
 
 const App = () => {
-  return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
-  );
+  return <Routes />;
 };
 
 export default App;
