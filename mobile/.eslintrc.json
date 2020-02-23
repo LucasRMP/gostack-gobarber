@@ -1,6 +1,8 @@
 {
     "env": {
-      "es6": true
+      "es6": true,
+      "jest": true,
+      "browser": true
     },
     "extends": [
       "airbnb",
@@ -22,6 +24,9 @@
     },
     "plugins": [
       "react",
+      "jsx-a11y",
+      "import",
+      "react-hooks",
       "prettier"
     ],
     "rules": {
@@ -33,6 +38,15 @@
         }
       ],
       "import/prefer-default-export": "off",
-      "camelcase": "off"
+      "camelcase": "off",
+      "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "react/jsx-one-expression-per-line": "off",
+      "global-require": "off",
+      "react-native/no-raw-text": "off",
+      "no-param-reassign": "off",
+      "no-underscore-dangle": "off",
+      "no-console": ["error", { "allow": ["tron"] }],
+      "react-hooks/rules-of-hooks": "off",
+      "react-hooks/exaustive-deps": "warn"
     }
   }
