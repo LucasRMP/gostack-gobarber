@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Image } from 'react-native';
 import PT from 'prop-types';
 
@@ -15,6 +15,11 @@ import {
 } from './styles';
 
 function SignUp({ navigation }) {
+  const mailRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSubmit = () => {};
+
   return (
     <Background>
       <Container>
@@ -26,6 +31,8 @@ function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="words"
             placeholder="Nome completo"
+            returnKeyType="next"
+            onSubmitEditing={() => mailRef.current.focus()}
           />
           <FormInput
             icon="mail-outline"
@@ -33,6 +40,9 @@ function SignUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Email"
+            ref={mailRef}
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
           <FormInput
             icon="lock-outline"
@@ -40,6 +50,9 @@ function SignUp({ navigation }) {
             autoCapitalize="none"
             placeholder="Senha"
             secureTextEntry
+            ref={passwordRef}
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
           />
 
           <SubmitButton onPress={() => {}}>Cadastrar</SubmitButton>
