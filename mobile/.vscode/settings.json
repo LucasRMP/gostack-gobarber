@@ -1,0 +1,8 @@
+{
+  "buck.projectConfig": {
+    "projectPath": "/home/lucas/dev/www/gostack/gobarber/mobile",
+    "flavor": [],
+    "target": "",
+    "platform": "linux-x86_64"
+  }
+}
