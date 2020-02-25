@@ -8,17 +8,17 @@ import 'react-native-gesture-handler';
 
 import { persistor, store } from './store';
 
-import Routes from './routes';
+import App from './App';
 
-const App = () => {
+function Index() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
-        <Routes />
+        <App />
       </PersistGate>
     </Provider>
   );
-};
+}
 
-export default App;
+export default Index;

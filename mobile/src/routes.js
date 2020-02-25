@@ -1,13 +1,41 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
+import Dashboard from '~/pages/Dashboard';
+import Profile from '~/pages/Profile';
 
-const Routes = createAppContainer(
-  createSwitchNavigator({
-    SignIn,
-    SignUp,
-  })
-);
+const createRouter = (signed = false) =>
+  createAppContainer(
+    createSwitchNavigator(
+      {
+        Sign: createSwitchNavigator({
+          SignIn,
+          SignUp,
+        }),
+        App: createBottomTabNavigator(
+          {
+            Dashboard,
+            Profile,
+          },
+          {
+            tabBarOptions: {
+              keyboardHidesTabBar: true,
+              activeTintColor: '#fff',
+              inactiveTintColor: 'rgba(255,255,255,.5)',
+              style: {
+                backgroundColor: '#8d41a8',
+                borderTopWidth: 0,
+              },
+            },
+          }
+        ),
+      },
+      {
+        initialRouteName: signed ? 'App' : 'Sign',
+      }
+    )
+  );
 
-export default Routes;
+export default createRouter;
