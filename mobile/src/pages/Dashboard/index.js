@@ -1,28 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Switch } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '~/services/api';
 
 import Appointment from '~/components/Appointment';
 import Background from '~/components/Background';
-import { Container, Title, List } from './styles';
+import { Container, Title, List, Filters, FilterText } from './styles';
 
 function Dashboard() {
   const [appoitments, setAppointments] = useState([]);
+  const [showPast, setShowPast] = useState(true);
 
   useEffect(() => {
     const componentDidMount = async () => {
       try {
         const res = await api.get('/appointments');
-        setAppointments(res.data);
+        setAppointments(res.data.filter(ap => ap.past === showPast));
       } catch (err) {
         Alert.alert('Not able to get appointments', 'Check your connection');
       }
     };
 
     componentDidMount();
-  }, []);
+  }, [showPast]);
 
   const handleCancel = async id => {
     try {
@@ -41,6 +42,10 @@ function Dashboard() {
     <Background>
       <Container>
         <Title>Agendamentos</Title>
+        <Filters>
+          <FilterText>Anteriores</FilterText>
+          <Switch value={showPast} onValueChange={setShowPast} />
+        </Filters>
         <List
           data={appoitments}
           keyExtractor={element => String(element.id)}
