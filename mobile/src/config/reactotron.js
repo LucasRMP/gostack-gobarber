@@ -11,7 +11,6 @@ if (__DEV__) {
     .use(reactotronReduxSaga())
     .connect();
 
-  tron.clear();
-
   console.tron = tron;
+  console.tron.clear();
 }

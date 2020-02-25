@@ -1,6 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import PT from 'prop-types';
+
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import Background from '~/components/Background';
 
@@ -15,9 +18,18 @@ import {
 } from './styles';
 
 function SignIn({ navigation }) {
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+
   const passwordRef = useRef();
 
-  const handleSubmit = () => {};
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    console.tron.log({ email, password });
+    dispatch(signInRequest(email, password));
+  };
 
   return (
     <Background>
@@ -26,6 +38,8 @@ function SignIn({ navigation }) {
 
         <Form>
           <FormInput
+            value={email}
+            onChangeText={setEmail}
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
@@ -35,6 +49,8 @@ function SignIn({ navigation }) {
             onSubmitEditing={() => passwordRef.current.focus()}
           />
           <FormInput
+            value={password}
+            onChangeText={setPassword}
             icon="lock-outline"
             autoCorrect={false}
             autoCapitalize="none"
@@ -45,7 +61,9 @@ function SignIn({ navigation }) {
             onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton onPress={handleSubmit}>Acessar</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Acessar
+          </SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignUp')}>

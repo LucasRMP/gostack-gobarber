@@ -1,6 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import PT from 'prop-types';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 import Background from '~/components/Background';
 
@@ -15,10 +18,19 @@ import {
 } from './styles';
 
 function SignUp({ navigation }) {
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+
   const mailRef = useRef();
   const passwordRef = useRef();
 
-  const handleSubmit = () => {};
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    dispatch(signUpRequest(name, email, password));
+  };
 
   return (
     <Background>
@@ -27,6 +39,8 @@ function SignUp({ navigation }) {
 
         <Form>
           <FormInput
+            value={name}
+            onChangeText={setName}
             icon="person-outline"
             autoCorrect={false}
             autoCapitalize="words"
@@ -35,6 +49,8 @@ function SignUp({ navigation }) {
             onSubmitEditing={() => mailRef.current.focus()}
           />
           <FormInput
+            value={email}
+            onChangeText={setEmail}
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
@@ -45,6 +61,8 @@ function SignUp({ navigation }) {
             onSubmitEditing={() => passwordRef.current.focus()}
           />
           <FormInput
+            value={password}
+            onChangeText={setPassword}
             icon="lock-outline"
             autoCorrect={false}
             autoCapitalize="none"
@@ -55,7 +73,9 @@ function SignUp({ navigation }) {
             onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton onPress={() => {}}>Cadastrar</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Cadastrar
+          </SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignIn')}>

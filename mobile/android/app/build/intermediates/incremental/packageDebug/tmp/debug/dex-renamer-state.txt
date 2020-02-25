@@ -1,4 +1,4 @@
-#Mon Feb 24 12:45:00 BRT 2020
+#Mon Feb 24 18:46:47 BRT 2020
 base.0=/home/lucas/dev/www/gostack/gobarber/mobile/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
