@@ -21,33 +21,49 @@ import Confirm from '~/pages/New/Confirm';
 
 const Stack = createStackNavigator();
 
-const New = ({ navigation }) => (
-  <NavigationContainer>
-    <Stack.Navigator
-      screenOptions={{
-        headerTransparent: true,
-        headerTitleStyle: { fontWeight: 'bold', color: '#fff' },
-        headerLeftContainerStyle: { marginLeft: 20 },
-        headerTitleAlign: 'center',
-      }}
-    >
-      <Stack.Screen
-        name="Provider"
-        component={SelectProvider}
-        options={{
-          title: 'Selecione um prestador',
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
-              <Icon name="chevron-left" size={25} color="#fff" />
-            </TouchableOpacity>
-          ),
+const New = ({ navigation }) => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTransparent: true,
+          headerTitleStyle: { fontWeight: 'bold', color: '#fff' },
+          headerLeftContainerStyle: { marginLeft: 20 },
+          headerTitleAlign: 'center',
         }}
-      />
-      <Stack.Screen name="Date" component={SelectDateTime} />
-      <Stack.Screen name="Confirm" component={Confirm} />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
+      >
+        <Stack.Screen
+          name="Provider"
+          component={SelectProvider}
+          options={{
+            title: 'Selecione um prestador',
+            headerLeft: () => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Dashboard')}
+              >
+                <Icon name="chevron-left" size={25} color="#fff" />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+
+        <Stack.Screen
+          name="Date"
+          component={SelectDateTime}
+          options={{
+            title: 'Selecione o horário',
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Icon name="chevron-left" size={25} color="#fff" />
+              </TouchableOpacity>
+            ),
+          }}
+        />
+        <Stack.Screen name="Confirm" component={Confirm} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 const createRouter = (signed = false) =>
   createAppContainer(
