@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # api upload files
-backend/tmp/uploads/*
+backend/tmp/*
