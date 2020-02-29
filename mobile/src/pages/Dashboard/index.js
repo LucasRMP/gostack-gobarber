@@ -10,7 +10,7 @@ import { Container, Title, List, Filters, FilterText } from './styles';
 
 function Dashboard() {
   const [appoitments, setAppointments] = useState([]);
-  const [showPast, setShowPast] = useState(true);
+  const [showPast, setShowPast] = useState(false);
 
   useEffect(() => {
     const componentDidMount = async () => {

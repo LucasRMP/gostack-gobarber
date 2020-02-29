@@ -7,7 +7,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { TouchableOpacity } from 'react-native';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
@@ -30,6 +29,8 @@ const New = ({ navigation }) => {
           headerTitleStyle: { fontWeight: 'bold', color: '#fff' },
           headerLeftContainerStyle: { marginLeft: 20 },
           headerTitleAlign: 'center',
+          headerTintColor: '#fff',
+          headerBackTitle: false,
         }}
       >
         <Stack.Screen
@@ -37,29 +38,24 @@ const New = ({ navigation }) => {
           component={SelectProvider}
           options={{
             title: 'Selecione um prestador',
-            headerLeft: () => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Dashboard')}
-              >
-                <Icon name="chevron-left" size={25} color="#fff" />
-              </TouchableOpacity>
-            ),
           }}
         />
 
         <Stack.Screen
           name="Date"
           component={SelectDateTime}
+          leftButton={<Icon name="chevron-left" size={25} color="#fff" />}
           options={{
             title: 'Selecione o horário',
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Icon name="chevron-left" size={25} color="#fff" />
-              </TouchableOpacity>
-            ),
           }}
         />
-        <Stack.Screen name="Confirm" component={Confirm} />
+        <Stack.Screen
+          name="Confirm"
+          component={Confirm}
+          options={{
+            title: 'Confirmar?',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
