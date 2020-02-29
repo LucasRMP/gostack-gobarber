@@ -8,9 +8,10 @@ import Appointment from '~/components/Appointment';
 import Background from '~/components/Background';
 import { Container, Title, List, Filters, FilterText } from './styles';
 
+// TODO: Change the navigation methid
 function Dashboard() {
   const [appoitments, setAppointments] = useState([]);
-  const [showPast, setShowPast] = useState(true);
+  const [showPast, setShowPast] = useState(false);
 
   useEffect(() => {
     const componentDidMount = async () => {
