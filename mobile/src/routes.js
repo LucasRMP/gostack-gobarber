@@ -37,7 +37,7 @@ const New = ({ navigation }) => {
           name="Provider"
           component={SelectProvider}
           options={{
-            title: 'Selecione um prestador',
+            title: 'Selecione prestador',
           }}
         />
 
@@ -46,14 +46,14 @@ const New = ({ navigation }) => {
           component={SelectDateTime}
           leftButton={<Icon name="chevron-left" size={25} color="#fff" />}
           options={{
-            title: 'Selecione o horário',
+            title: 'Selecione horário',
           }}
         />
         <Stack.Screen
           name="Confirm"
           component={Confirm}
           options={{
-            title: 'Confirmar?',
+            title: 'Confirmar agendamento',
           }}
         />
       </Stack.Navigator>
